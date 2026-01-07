@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/my-qrs-pwa/sw.js', { scope: '/my-qrs-pwa/' })})}
