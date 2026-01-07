@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GLOBAL VARIABLES */
+:root {
+  /* DARK THEME (Default) */
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --card-bg: #1C1C1E;
+  --glass-bg: rgba(28, 28, 30, 0.75);
+  --system-blue: #0A84FF;
+  --close-color: #000000;
+  --form-bg: #1C1C1D;
+  --form-object: #2C2C2D;
+  --input-bg: #47474B;
+  --clear-btn-bg: #6C6C6F;
+  --list-name-category-text-color: #9E9EA5;
+  --input-placeholder: #78787D;
+  --btn-neutral: #656569;
+  --separator-color: #3D3D41;
+  --system-red: #FF453A;
+  --indicator-yellow: #FFD60A;
+
+  /* Custom SVG for selects */
+  --select-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='currentColor' d='M5 7l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+/* LIGHT THEME */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f2f2f7;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --system-blue: #007AFF;
+    --close-color: #f2f2f7;
+    --form-bg: #F2F2F6;
+    --form-object: #FFFFFF;
+    --input-bg: #E4E4E5;
+    --clear-btn-bg: #B6B6B7;
+    --list-name-category-text-color: #8A8A8E;
+    --input-placeholder: #B2B2B5;
+    --btn-neutral: #C5C5C7;
+    --separator-color: #E3E3E3;
+    --system-red: #FF3B30;
+    --indicator-yellow: #FFCC00;
+  }
+}
+
+/* BASE STYLES */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  @apply font-sans bg-bg-color text-text-color antialiased;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* COMPONENTS */
+@layer components {
+
+  /* Custom class for stylized select elements */
+  .select-base {
+    @apply rounded px-3 py-2 text-base cursor-pointer border border-transparent transition-all appearance-none;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    background-image: var(--select-caret);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+  }
+
+  .select-base:focus {
+    @apply outline-none border-[#646cff] ring-4 ring-[#646cff]/10;
+  }
+}
+
+/* UTILITIES */
+@layer utilities {
+  .text-wrap-balance {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Utility to hide scrollbars */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
