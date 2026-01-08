@@ -4,6 +4,7 @@
 ![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
 ![React](https://img.shields.io/badge/react-19.0-61DAFB.svg?style=flat&logo=react)
 ![Vite](https://img.shields.io/badge/vite-6.1-646CFF.svg?style=flat&logo=vite)
+![JSDoc](https://img.shields.io/badge/JSDoc-Type%20Safe-F7DF1E?style=flat&logo=javascript)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-3.4.17-38B2AC.svg?style=flat&logo=tailwind-css)
 
 **My QRs** — is a modern Progressive Web Application (PWA) designed for convenient storage, organization, and quick access to your QR codes (tickets, discount cards, Wi-Fi, etc.). The app works completely offline, utilizes local device storage, and is optimized for iOS and Android.
@@ -37,6 +38,7 @@
 ## 🏗 Tech Stack
 
 * **Core:** [React 19](https://react.dev/), [Vite](https://vitejs.dev/)
+* **Typing:** **JSDoc** (strict type checking via `checkJs` without TypeScript compilation).
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 * **Database:** IndexedDB (Native Browser Storage)
 * **PWA:** `vite-plugin-pwa` (Manifest, Service Workers, Offline)
