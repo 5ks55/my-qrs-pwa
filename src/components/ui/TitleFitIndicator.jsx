@@ -71,6 +71,7 @@ export default function TitleFitIndicator({ text, onStatusChange }) {
     <>
       {/* Visual Part */}
       <div
+        aria-hidden="true"
         className={`
           absolute right-3 top-1/2 -translate-y-1/2 
           w-[20px] h-[20px] rounded-full 

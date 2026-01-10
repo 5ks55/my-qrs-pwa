@@ -86,6 +86,7 @@ export default function EditCategoryModal({ isOpen, onClose, onSubmit, category 
                         onFocus={handleInputFocus}
                         onBlur={() => setIsInputFocused(false)}
                         placeholder="Category Name"
+                        aria-label="Category Name Input"
                         className={`
                           w-full bg-transparent border-none outline-none 
                           text-[19px] font-semibold text-text-color placeholder-input-placeholder 
@@ -99,6 +100,7 @@ export default function EditCategoryModal({ isOpen, onClose, onSubmit, category 
                             onClick={() => setName('')}
                             onMouseDown={(e) => e.preventDefault()}
                             className="absolute right-5 w-[22px] h-[22px] rounded-full bg-clear-btn flex items-center justify-center transition-opacity hover:opacity-80 cursor-pointer border-none p-0 z-10"
+                            aria-label="Clear text"
                         >
                             <svg
                                 className="stroke-input-bg"

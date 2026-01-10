@@ -74,7 +74,6 @@ export default function QRCodeCard({
           onClick={() => onCopy(qrObject.qrData)}
           className="p-0 w-7 h-7 rounded-full bg-transparent border-0 cursor-pointer flex items-center justify-center transition-opacity hover:opacity-60 active:scale-95 text-system-blue"
           aria-label="Copy Data"
-          title="Copy"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <g transform="translate(12, 10.5) scale(1.15) translate(-12, -12)">
@@ -91,7 +90,6 @@ export default function QRCodeCard({
           onClick={() => onEdit && onEdit(qrObject)}
           className="p-0 w-7 h-7 rounded-full bg-transparent border-0 cursor-pointer flex items-center justify-center transition-colors active:scale-95 text-system-blue active:opacity-50"
           aria-label="Card Details"
-          title="Info QR Card"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10"></circle>

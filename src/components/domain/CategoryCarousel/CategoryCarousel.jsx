@@ -131,6 +131,8 @@ export default function CategoryCarousel({ category, cards, onCardChange, onCopy
           width: `${cardWidth}px`,
           height: `${placeholderHeight}px`
         }}
+        role="status"
+        aria-label={`No cards in category ${category.name}`}
       >
         <span className="text-lg font-medium opacity-50 select-none">
           No cards
@@ -193,11 +195,14 @@ export default function CategoryCarousel({ category, cards, onCardChange, onCopy
         }}
         // Spread all event handlers from hook
         {...handlers}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={`${category.name} QR codes`}
       >
         <div
           className={`carousel-track ${uxMode}`}
           style={trackStyle}
-        // onTransitionEnd also comes from handlers
+          role="list"
         >
           {slidesToRender.map((card, relativeIndex) => {
             return (
@@ -208,6 +213,8 @@ export default function CategoryCarousel({ category, cards, onCardChange, onCopy
                   pointerEvents: isSwiping ? 'none' : 'auto',
                   width: `${cardWidth}px`
                 }}
+                role="listitem"
+                aria-hidden={!(relativeIndex === activeRenderedIndex)}
               >
                 <QRCodeCard
                   qrObject={card}

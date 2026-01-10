@@ -119,6 +119,7 @@ export default function FixedButtons({
               transition: 'opacity 0.15s ease-in-out',
             }}
             onClick={handleLeftClick}
+            aria-label={currentLeftBtn === '3' ? "Export backup" : "Import backup"}
           >
             <span key={currentLeftBtn} className="flex items-center justify-center animate-fadeIn">
               {currentLeftBtn === '3' ? (
@@ -193,6 +194,7 @@ export default function FixedButtons({
         <button
           className={`fixed z-30 p-0 m-0 active:scale-90 transition-transform animate-fadeIn w-[50px] h-[50px] rounded-full bottom-6 right-6 ${fabClasses}`}
           onClick={onAddQR}
+          aria-label="Add new QR code"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 5V19M5 12H19" />

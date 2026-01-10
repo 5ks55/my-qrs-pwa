@@ -163,6 +163,7 @@ export default function NewQRModal({
                             autoFocus
                             onFocus={handleInputFocus}
                             onKeyDown={handleEnterBlur}
+                            aria-label="QR Code Title"
                             className={`w-full bg-transparent border-none outline-none text-[17px] text-text-color placeholder-input-placeholder py-3 leading-tight transition-all duration-200 ${isTitleIndicatorVisible ? 'pl-4 pr-10' : 'px-4'}`}
                         />
                         <div className="absolute bottom-0 right-0 left-4 border-b border-separator pointer-events-none"></div>
@@ -175,6 +176,7 @@ export default function NewQRModal({
                             onFocus={handleInputFocus}
                             minRows={4}
                             maxRows={8}
+                            aria-label="QR Code Data Content"
                             className="w-full bg-transparent border-none outline-none text-[17px] text-text-color placeholder-input-placeholder px-4 py-3 resize-none leading-tight"
                         />
                     </div>
@@ -226,6 +228,7 @@ export default function NewQRModal({
                             value={categoryId}
                             onChange={(e) => setCategoryId(e.target.value)}
                             className="select-base absolute inset-0 w-full h-full opacity-0 cursor-pointer appearance-none"
+                            aria-label="Select Category"
                         >
                             {categories.map(cat => (
                                 <option key={cat.id} value={cat.id}>{cat.name.replace(/ /g, '\u00A0')}</option>

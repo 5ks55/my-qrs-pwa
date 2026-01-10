@@ -80,6 +80,7 @@ export default function CreateCategoryModal({ isOpen, onClose, onSubmit }) {
                         onFocus={handleInputFocus}
                         onBlur={() => setIsInputFocused(false)}
                         placeholder="Category Name"
+                        aria-label="Category Name Input"
                         autoFocus
                         className={`
                             w-full bg-transparent border-none outline-none 
@@ -94,6 +95,7 @@ export default function CreateCategoryModal({ isOpen, onClose, onSubmit }) {
                             onClick={() => setName('')}
                             onMouseDown={(e) => e.preventDefault()}
                             className="absolute right-5 w-[22px] h-[22px] rounded-full bg-clear-btn flex items-center justify-center transition-opacity hover:opacity-80 cursor-pointer border-none p-0 z-10"
+                            aria-label="Clear text"
                         >
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="stroke-input-bg">
                                 <path d="M2.5 2.5L7.5 7.5M7.5 2.5L2.5 7.5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
