@@ -1,4 +1,4 @@
-# 📱 My QRs PWA
+# <img src="./public/app-icons/icon.svg" width="32" height="32" /> My QRs PWA
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
@@ -10,6 +10,39 @@
 **My QRs** — is a modern Progressive Web Application (PWA) designed for convenient storage, organization, and quick access to your QR codes (tickets, discount cards, Wi-Fi, etc.). The app works completely offline, utilizes local device storage, and is optimized for iOS and Android.
 
 🔗 **Demo:** [Open App](https://5ks55.github.io/my-qrs-pwa/)
+
+---
+
+## 📑 Table of Contents
+* [Screenshots](#-screenshots)
+* [Privacy First](#-privacy-first)
+* [Key Features](#-key-features)
+* [Tech Stack](#-tech-stack)
+* [Performance & Quality](#-performance--quality)
+* [Installation and Setup](#-installation-and-setup)
+* [Build and Deploy](#-build-and-deploy)
+* [How to Install on Phone (PWA)](#-how-to-install-on-phone-pwa)
+* [Project Structure](#-project-structure)
+* [License](#-license)
+
+---
+
+## 📸 Screenshots
+
+| Theme | Home Screen | QR Scanner | Edit Mode |
+|:---:|:---:|:---:|:---:|
+| **Light Mode** ☀️ | <img src="./docs/light-home.png" width="180" alt="Home Light" /> | <img src="./docs/light-scan.png" width="180" alt="Scanner Light" /> | <img src="./docs/light-edit.png" width="180" alt="Edit Light" /> |
+| **Dark Mode** 🌙 | <img src="./docs/dark-home.png" width="180" alt="Home Dark" /> | <img src="./docs/dark-scan.png" width="180" alt="Scanner Dark" /> | <img src="./docs/dark-edit.png" width="180" alt="Edit Dark" /> |
+
+*(Note: Screenshots demonstrate the adaptive UI design across different color schemes)*
+
+---
+
+## 🔒 Privacy First
+This application is **100% Client-Side**.
+* **No Servers:** All data is stored locally on your device using **IndexedDB**.
+* **No Tracking:** No analytics, no cookies, no data collection.
+* **Ownership:** You can export your data to a JSON file at any time for backup or transfer.
 
 ---
 
@@ -46,6 +79,22 @@
     * Scanning: `@zxing/library`, `jsqr`
     * Generation: `qrcode.react`
 * **Utilities:** `@dnd-kit` (Drag-and-Drop), `react-textarea-autosize`
+
+---
+
+## ⚡ Performance & Quality
+
+This project strives for high performance and accessibility standards.
+**Lighthouse Audit Results:**
+
+| Category | Score |
+| :--- | :--- |
+| 🟢 **Performance** | **90** |
+| 🟢 **Accessibility** | **94** |
+| 🟢 **Best Practices** | **100** |
+| 🟢 **SEO** | **91** |
+
+![Lighthouse Score](./docs/lighthouse-score.png)
 
 ---
 
@@ -94,13 +143,13 @@ The project is configured for deployment on **GitHub Pages**.
 The app does not require downloading from the App Store or Google Play.
 
 ### iOS (iPhone/iPad)
-1. Open the link in **Safari**.
+1. Open the [Demo Link](https://5ks55.github.io/my-qrs-pwa/) in **Safari**.
 2. Tap the **"Share"** button (square with an upward arrow).
 3. Select **"Add to Home Screen"**.
 4. The app will now work like a native application (without the browser address bar).
 
 ### Android
-1. Open the link in **Chrome**.
+1. Open the [Demo Link](https://5ks55.github.io/my-qrs-pwa/) in **Chrome**.
 2. Tap the menu (three dots) or wait for the pop-up banner.
 3. Select **"Install App"** or **"Add to Home screen"**.
 
@@ -108,9 +157,11 @@ The app does not require downloading from the App Store or Google Play.
 
 ## 📂 Project Structure
 
+<details>
+<summary>Click to view file structure</summary>
+
 ```text
 src/
-├── app-icons/         # Icons for PWA manifest
 ├── components/
 │   ├── domain/        # Business-specific components
 │   │   ├── CategoryCarousel/ # Card swiper
@@ -130,3 +181,9 @@ src/
 ├── App.jsx            # UI entry point
 ├── main.jsx           # React initialization
 └── index.css          # Global styles and Tailwind directives
+```
+</details>
+
+---
+## 📄 License
+This project is licensed under the GPLv3 License.
