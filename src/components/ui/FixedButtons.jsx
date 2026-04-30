@@ -50,6 +50,7 @@ export default function FixedButtons({
 
   // Base glass style
   const glassClasses = "bg-glass-bg backdrop-blur-[12px] text-text-color border-[0.5px] border-[rgba(128,128,128,0.2)]";
+  const liquidEffect = "transform transition-all duration-[200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-[1.08] active:brightness-110 dark:active:brightness-125 active:shadow-[0_10px_25px_rgba(0,0,0,0.15),inset_0_0_15px_rgba(255,255,255,0.3)] dark:active:shadow-[0_10px_25px_rgba(0,0,0,0.4),inset_0_0_15px_rgba(255,255,255,0.15)] will-change-transform";
 
   // Active "Done" button style
   const activeDoneClasses = "bg-[rgb(from_var(--system-blue)_r_g_b_/_0.75)] backdrop-blur-[12px] text-white border-[0.5px] border-[rgba(128,128,128,0.2)] shadow-[0_2px_5px_rgba(0,0,0,0.1)]";
@@ -88,7 +89,7 @@ export default function FixedButtons({
       >
         {/* PILL CONTAINER (Buttons 3/4 and 2) */}
         <div
-          className={`relative shadow-sm transition-all duration-150 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 rounded-[22px] overflow-hidden ${glassClasses}`}
+          className={`relative shadow-sm transition-all duration-150 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 rounded-[22px] overflow-hidden ${glassClasses} ${liquidEffect}`}
           style={{
             width: isExpanded ? '104px' : '44px',
             height: '44px',
@@ -141,65 +142,64 @@ export default function FixedButtons({
 
         {/* CONTAINER FOR BUTTON 1 (Edit / Done) */}
         <div className="relative w-[44px] h-[44px] z-40">
-          {/* Edit Mode Button */}
-          <button
-            className={`absolute inset-0 flex items-center justify-center shadow-sm p-0 m-0 hover:brightness-90 transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] rounded-full ${glassClasses}`}
-            onClick={onEditMode}
+          {/* Edit Mode Button Wrapper */}
+          <div
+            className="absolute inset-0 transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
             style={{
-              transform: isEditMode
-                ? `translateX(${translateDistance}) scale(0.8)`
-                : 'translateX(0) scale(1)',
+              transform: isEditMode ? `translateX(${translateDistance}) scale(0.8)` : 'translateX(0) scale(1)',
               opacity: isEditMode ? 0 : 1,
               pointerEvents: isEditMode ? 'none' : 'auto',
             }}
-            aria-label="Edit"
           >
-            <svg {...iconProps} style={{ transform: 'translate(1px, -1px)' }}>
-              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-            </svg>
-          </button>
+            {/* Edit Mode Button */}
+            <button
+              className={`w-full h-full flex items-center justify-center shadow-sm p-0 m-0 rounded-full ${glassClasses} ${liquidEffect}`}
+              onClick={onEditMode}
+              aria-label="Edit"
+            >
+              <svg {...iconProps} style={{ transform: 'translate(1px, -1px)' }}>
+                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+              </svg>
+            </button>
+          </div>
 
-          {/* Checkmark Button */}
-          <button
-            className={`absolute inset-0 flex items-center justify-center p-0 m-0 hover:brightness-110 transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] rounded-full ${activeDoneClasses}`}
-            onClick={onEditMode}
+          {/* Checkmark Button Wrapper */}
+          <div
+            className="absolute inset-0 transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
             style={{
-              transform: isEditMode
-                ? 'translateX(0) scale(1)'
-                : `translateX(${translateDistance}) scale(0.8)`,
+              transform: isEditMode ? 'translateX(0) scale(1)' : `translateX(${translateDistance}) scale(0.8)`,
               opacity: isEditMode ? 1 : 0,
               pointerEvents: isEditMode ? 'auto' : 'none',
             }}
-            aria-label="Done editing"
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="translate-y-[1px]"
+            {/* Сheckmark Button */}
+            <button
+              className={`w-full h-full flex items-center justify-center p-0 m-0 rounded-full ${activeDoneClasses} ${liquidEffect}`}
+              onClick={onEditMode}
+              aria-label="Done editing"
             >
-              <path d="M4 12l5 5L20 6" />
-            </svg>
-          </button>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="translate-y-[1px]">
+                <path d="M4 12l5 5L20 6" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* FAB */}
       {hasCategories && !isEditMode && (
-        <button
-          className={`fixed z-30 p-0 m-0 active:scale-90 transition-transform animate-fadeIn w-[50px] h-[50px] rounded-full bottom-6 right-6 ${fabClasses}`}
-          onClick={onAddQR}
-          aria-label="Add new QR code"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 5V19M5 12H19" />
-          </svg>
-        </button>
+        <div className="fixed z-30 bottom-6 right-6 w-[50px] h-[50px] animate-fadeIn">
+          <button
+            className={`w-full h-full p-0 m-0 rounded-full ${fabClasses} ${liquidEffect}`}
+            onClick={onAddQR}
+            aria-label="Add new QR code"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 5V19M5 12H19" />
+            </svg>
+          </button>
+        </div>
       )}
     </>
   );

@@ -19,6 +19,7 @@ export default function QRScanButtons({
 }) {
   // Common styles for "glass" effect
   const glassClasses = "bg-glass-bg backdrop-blur-[12px] text-text-color border-[0.5px] border-[rgba(128,128,128,0.2)]";
+  const liquidEffect = "transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-[1.08] active:brightness-110 dark:active:brightness-125 active:shadow-[0_10px_25px_rgba(0,0,0,0.15),inset_0_0_15px_rgba(255,255,255,0.3)] dark:active:shadow-[0_10px_25px_rgba(0,0,0,0.4),inset_0_0_15px_rgba(255,255,255,0.15)] will-change-transform";
 
   // Common SVG styles
   const svgClasses = "w-6 h-6 stroke-[1.5]";
@@ -40,7 +41,7 @@ export default function QRScanButtons({
       {isScanning ? (
         /* --- STATE: SCANNING (Stop Button) --- */
         <button
-          className={`flex items-center justify-center shadow-sm p-0 m-0 hover:brightness-90 transition-all ${glassClasses} w-[44px] h-[44px] rounded-full`}
+          className={`flex items-center justify-center p-0 m-0 w-[44px] h-[44px] rounded-full ${glassClasses} ${liquidEffect}`}
           onClick={onStopClick}
           aria-label="Stop scanning"
         >
@@ -51,7 +52,7 @@ export default function QRScanButtons({
       ) : (
         /* --- STATE: IDLE (Pill Container) --- */
         <div
-          className={`flex overflow-hidden shadow-sm ${glassClasses} w-[104px] h-[44px] rounded-[22px]`}
+          className={`flex overflow-hidden shadow-sm ${glassClasses} ${liquidEffect} w-[104px] h-[44px] rounded-[22px]`}
         >
           <button
             className="flex-1 h-full flex items-center justify-center hover:brightness-90 transition-all border-none rounded-none p-0 m-0 bg-transparent"
